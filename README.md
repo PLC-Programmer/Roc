@@ -84,7 +84,7 @@ With _s_ I have a list of integer numbers from _start_ to _end_ (exclusively) an
 
 #### Transforming one list into another, here for console output: _List.map_
 
-In a next step, the program is converting these numbers of type I32 into strings, concatenates them and finally puts this common string to the console:
+In a next step, the program is converting these numbers of type I32 into strings, concatenates them and finally puts the resulting, common string to the console:
 
 ```
 # only printing
@@ -97,9 +97,9 @@ In a next step, the program is converting these numbers of type I32 into strings
              Num.to_str(num)
 ```
 
-I took this part from official example [FizzBuzz](https://www.roc-lang.org/examples/FizzBuzz/README.html) 
+I took this part of the source code from official example [FizzBuzz](https://www.roc-lang.org/examples/FizzBuzz/README.html) 
 
-Also note the last expression of the program:
+Also note the final expression of the program:
 
 ```
   Stdout.line!("Bye.")
@@ -109,10 +109,15 @@ There, no **postfix operator** _?_ is used like in the "printing loop" with: _|>
 
 See from the tutorial again: https://www.roc-lang.org/tutorial#the-question-postfix-operator
 
-So, _?_, also called the "try operator", is "syntax sugar" for _Result.try_: https://www.roc-lang.org/examples/Results/README.html
+_?_, also called the "try operator", is "syntax sugar" for _Result.try_: https://www.roc-lang.org/examples/Results/README.html
 
-(draft)
-In the "printing loop", piping the common string to _Stdout_ can cause an error which should be taken care of, something we don't need at final expression _Stdout.line!("Bye.")_.
+In the "printing loop", piping the resulting string to _Stdout_ can cause an error, something which must be taken care of (in Roc).
+
+On the other side, final expression _Stdout.line!("Bye.")_ must not have postfix operator _?_, since this would cause this compilation error: "This returns something that's incompatible with the return type of the enclosing function: ..." -- enclosing function being _main!_ (I guess).
+
+Leaving away postfix operator _?_ in the "printing loop" would cause another compilation error: "The result of this call to Stdout.line! is ignored: ... |> Stdout.line!()  # "?"! ...".
+
+So in general, return types must meet the overall requirements (in Roc).
 
 <br/>
 
