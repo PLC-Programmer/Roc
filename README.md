@@ -62,7 +62,7 @@ now_multiples = List.walk!([1, 2, 3], [], \nums, i ->
 
 It features a so called _**effectful function**_ _List.walk!()_, indicated with symbol _!_, which is featuring another effectful function _Utc.now!()_.
 
-_List.walk!()_ starts with an empty List _[]_ and has function arguments _nums_ and _i_, indicated with the **lambda symbol** _\_ (for λ).
+_List.walk!()_ starts with an empty List _[]_ and has function arguments _nums_ and _i_, indicated with the **lambda symbol** _\\_ (for λ).
 
 These two arguments go into the following function, indicated with symbol _->_, which is called the **step function**.
 
@@ -83,7 +83,7 @@ With _s_ I have a list of integer numbers from _start_ to _end_ (exclusively) an
 
 <br/>
 
-#### Transforming one list into another for console output: _List.map_
+#### Transforming one list into another, here for console output: _List.map_
 
 In a next step, the program is converting these numbers of type I32 into strings and  concatenates them:
 
@@ -108,12 +108,18 @@ Also note the last expression:
   Stdout.line!("Bye.")
 ```
 
-There, no **postfix operator** _?_ is used like in the "printing loop" with: _|> Stdout.line!()?:_
+There, no **postfix operator** _?_ is used like in the "printing loop" with: _|> Stdout.line!()?_
 
+See from the tutorial again: https://www.roc-lang.org/tutorial#the-question-postfix-operator
 
+So, _?_, also called the "try operator" is "syntax sugar" for _Result.try_: https://www.roc-lang.org/examples/Results/README.html
 
+(draft)
+In the "printing loop", piping the common string to _Stdout_ can cause an error which should be taken care of, something we don't need at final expression _Stdout.line!("Bye.")_.
 
+<br/>
 
+"||" notation:
 
 (TBD)
 
