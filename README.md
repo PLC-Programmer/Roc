@@ -62,7 +62,8 @@ now_multiples = List.walk!([1, 2, 3], [], \nums, i ->
 
 It features a so called _**effectful function**_ _List.walk!()_, indicated with symbol _!_, which is featuring another effectful function _Utc.now!()_.
 
-_List.walk!()_ starts with an empty List _[]_ and has function arguments _nums_ and _i_, indicated with the **lambda symbol** _\\_ (for λ).
+_List.walk!()_ starts with an empty List _[]_ and has function arguments _nums_ and _i_, indicated with the **lambda symbol** _\\_ (for λ) to indicate an "ad-hoc function".
+".
 
 These two arguments go into the following function, indicated with symbol _->_, which is called the **step function**.
 
@@ -85,7 +86,7 @@ With _s_ I have a list of integer numbers from _start_ to _end_ (exclusively) an
 
 #### Transforming one list into another, here for console output: _List.map_
 
-In a next step, the program is converting these numbers of type I32 into strings and  concatenates them:
+In a next step, the program is converting these numbers of type I32 into strings, concatenates them and finally puts this common string to the console:
 
 ```
 # only printing
@@ -100,9 +101,7 @@ In a next step, the program is converting these numbers of type I32 into strings
 
 I took this part from official example [FizzBuzz](https://www.roc-lang.org/examples/FizzBuzz/README.html) 
 
-
-
-Also note the last expression:
+Also note the last expression of the program:
 
 ```
   Stdout.line!("Bye.")
@@ -112,17 +111,20 @@ There, no **postfix operator** _?_ is used like in the "printing loop" with: _|>
 
 See from the tutorial again: https://www.roc-lang.org/tutorial#the-question-postfix-operator
 
-So, _?_, also called the "try operator" is "syntax sugar" for _Result.try_: https://www.roc-lang.org/examples/Results/README.html
+So, _?_, also called the "try operator", is "syntax sugar" for _Result.try_: https://www.roc-lang.org/examples/Results/README.html
 
 (draft)
 In the "printing loop", piping the common string to _Stdout_ can cause an error which should be taken care of, something we don't need at final expression _Stdout.line!("Bye.")_.
 
 <br/>
 
-"||" notation:
+About this "|...|" notation at function definition _int_conv = |num|_:
 
-(TBD)
+See from the tutorial again: https://www.roc-lang.org/tutorial#defining-functions
 
+My user defined function _int_conv_ takes _|num|_ as its argument and converts this number of type _Num_ (https://www.roc-lang.org/builtins/Num) into a string.
+
+So, whenever _int_conv_ is called, a _Num.to_str(num)_ evaluation happens.
 
 <br/>
 
