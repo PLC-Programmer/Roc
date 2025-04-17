@@ -118,11 +118,9 @@ In the "printing loop", piping the common string to _Stdout_ can cause an error 
 
 <br/>
 
-About this "|...|" notation at function definition _int_conv = |num|_:
+About this "|...|" notation at **function definition** _int_conv = |num|_: see from the tutorial again: https://www.roc-lang.org/tutorial#defining-functions
 
-See from the tutorial again: https://www.roc-lang.org/tutorial#defining-functions
-
-My user defined function _int_conv_ takes _|num|_ as its argument and converts this number of type _Num_ (https://www.roc-lang.org/builtins/Num) into a string.
+My user defined function _int_conv_ takes _num_ as its argument and converts this number of type _Num_ (https://www.roc-lang.org/builtins/Num) into a string.
 
 So, whenever _int_conv_ is called, a _Num.to_str(num)_ evaluation happens.
 
