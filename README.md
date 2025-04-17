@@ -3,7 +3,7 @@
 <br/>
 
 
-# How to make a simple for-loop in Roc?
+# How to make a simple "for-loop" in Roc?
 
 or maybe similarly in other (purely) functional programming languages.
 
