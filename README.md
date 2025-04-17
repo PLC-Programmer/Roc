@@ -69,8 +69,6 @@ These two arguments go into the following function, indicated with symbol _->_, 
 
 So, a list of _Utc.now_ time elements in milliseconds is created, where each time element is just multiplied with the element from the input list _[1, 2, 3]_.
 
-<br/>
-
 That was my solution, only simpler:
 
 ```
