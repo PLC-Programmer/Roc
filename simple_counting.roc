@@ -22,3 +22,4 @@ main! = |_args|
              Num.to_str(num)
 
   Stdout.line!("Bye.")
+
