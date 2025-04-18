@@ -1,4 +1,4 @@
-2025-04-17, work in progress
+2025-04-18, work in progress
 
 <br/>
 
@@ -98,6 +98,8 @@ In a next step, the program is converting these numbers of type I32 into strings
 ```
 
 I took this part of the source code from official example [FizzBuzz](https://www.roc-lang.org/examples/FizzBuzz/README.html) 
+
+Expression _int_conv : I32 -> Str_ defines a so called _**pure function**_, see from here: https://www.roc-lang.org/tutorial#efffectful-functions
 
 Also note the final expression of the program:
 
