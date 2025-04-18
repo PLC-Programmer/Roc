@@ -14,6 +14,8 @@ This example heavily leans into this official example: https://www.roc-lang.org/
 
 However, to convert the "Towers of Hanoi" example into a simple, recursive function to just count from 0 to 9 (inclusively) had its challenges too.
 
+<br/>
+
 ####  #1 -- Be precise with types
 
 First, I noticed - maybe not in this very simple example - that it's really beneficial to be very precise with the data types, for example like this for an unsigned 32-bit integer number:
@@ -77,27 +79,64 @@ So, I could not have other names or names just introduced before, for example li
            int_generate({z,limit-1,list0})  # recursion
 ```
 
+<br/>
 
+#### #4 -- Beware of the last expression of a function
 
+This line also took its time:
 
+```
+           list0 = List.append(x,y)
+```
 
+First, I did not assign the return of the _append_ method on List _x_ to any name:
 
+```
+           List.append(x,y)
+```
 
+This does not work (here). So, I provided (arbitrary) name _list0_ for the returned List of _List.append(x,y)_, which is then also the name of the List provided to the recursive function call.
 
+However, you must not assign a name to the returned List, if an operation is the last expression of a function, like here:
 
+```
+         else
+           List.append(x,y)
+```
 
+Otherwise the compiler would complain like this: "... Looks like the indentation ends prematurely here. Did you mean to have another expression after this line?"
 
+<br/>
 
+#### Program outcome
 
+And this is the outcome of this program printed to the (Linux) console:
 
+_... $ roc simple_counting_solution_#2.roc_
 
+_0_
 
+_1_
 
+_2_
 
+_3_
 
+_4_
 
+_5_
 
-(TBD)
+_6_
+
+_7_
+
+_8_
+
+_9_
+
+_Bye._
+
+_... $_
 
 <br/>
 
